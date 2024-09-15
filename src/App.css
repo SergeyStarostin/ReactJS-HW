@@ -45,3 +45,11 @@
   height: 100vh;
   background-color: #f8f8f8;
 }
+
+.headingHW {
+  color: grey;
+  text-align: left;
+  padding-left: 100px;
+  padding-top: 10px;
+  font-size: 30px;
+}
