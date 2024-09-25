@@ -6,6 +6,10 @@ import TodoList from "./elements/hw_3/TodoList.js";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import HomePage from "./elements/hw_4/HomePage.jsx";
 import AboutPage from "./elements/hw_4/AboutPage.jsx";
+import { Provider, useSelector } from "react-redux";
+import store from "./elements/hw_5/store";
+import ToggleTheme from "./elements/hw_5/ToggleTheme";
+import "./elements/hw_5/styles.css";
 
 function App() {
   return (
@@ -41,8 +45,23 @@ function App() {
       </div>
     </Router>
     <hr />
+    <p className="headingHW">Homework_5</p>
+    <Provider store={store}>
+      <AppWithTheme />
+    </Provider>
+    <hr />
     </div>
   );
 }
+
+const AppWithTheme = () => {
+  const theme = useSelector((state) => state.theme);
+  return (
+    <div className={`app ${theme}`}>
+      <h2>Choosing a theme color</h2>
+      <ToggleTheme />
+    </div>
+  );
+};
 
 export default App;
